@@ -1,20 +1,12 @@
 define([
-	"jquery",
-	"backbone"
+	"settings",
+	"views/app"
 ],
 
-function($, Backbone) {
+function(settings, AppView) {
 
-	var app = $.extend({}, Backbone.Events);
-	define("app", app);
-
-	require([
-		"settings",
-		"views/app"
-	], function(settings, AppView) {
-		var appView = new AppView({ el: settings.appSelector });
-		appView.render();
-		appView.start();
-	});
+	var appView = new AppView({ el: settings.appSelector });
+	appView.render();
+	appView.start();
 
 });

@@ -6,6 +6,7 @@ define([
 function(Backbone, template) {
 
 	var NewsItemView = Backbone.View.extend({
+		name: "NewsItemView",
 		template: _.template(template)
 	});
 

@@ -3,7 +3,7 @@ define([
 	"fuzzy",
 	"collections/employees",
 	"views/employees/employee",
-	"text!/templates/employees/list.html"
+	"text!/templates/directory/employees.html"
 ],
 
 function(Backbone, fuzzy, Employees, EmployeeView, template) {

@@ -1,3 +1,6 @@
+/**
+ * Utility methods for strings.
+ */
 define([
 ],
 

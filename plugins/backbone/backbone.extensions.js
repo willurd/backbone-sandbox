@@ -1,3 +1,6 @@
+/**
+ * This plugin is where micro-architectures such as outlets are implemented.
+ */
 define([
 	"underscore",
 	"backbone",
@@ -19,6 +22,9 @@ function(_, Backbone, fp, Log) {
 		obj[fn] = creator(obj[fn]) || obj[fn];
 	}
 
+	/**
+	 * Calls fn in the next available iteration of the JavaScript event loop.
+	 */
 	function defer(fn, context) {
 		if (fn) {
 			setTimeout(function() {

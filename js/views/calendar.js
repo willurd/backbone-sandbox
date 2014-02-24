@@ -32,10 +32,6 @@ function(Backbone, Events, calendarTemplate) {
 					events.fetch();
 				}
 			});
-		},
-
-		setEvents: function(events) {
-			this.ui.calendar.fullCalendar("events", events);
 		}
 	});
 

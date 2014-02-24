@@ -1,3 +1,6 @@
+/**
+ * A lightweight, namespaced logging class.
+ */
 define([
 	"util/Class",
 	"moment",
@@ -13,6 +16,7 @@ function(Class, moment, Strings) {
 	function log(name, level, args) {
 		longestNameLength = Math.max(longestNameLength, name.length);
 
+		// <date> <time> [ <level> ] <category> | <args...>
 		var message = [
 			moment().format("YYYY/MM/DD hh:mm:ss.SSS"),
 			"[",
