@@ -1,0 +1,22 @@
+.clear-button {
+	background: #eee;
+	border-radius: 12px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 18px;
+	height: 24px;
+	line-height: 22px;
+	padding: 0;
+	text-align: center;
+	width: 24px;
+}
+
+.clear-button:hover {
+	background: #ccc;
+}
+
+.form-group .clear-button {
+	position: absolute;
+	right: 6px;
+	top: 5px;
+}

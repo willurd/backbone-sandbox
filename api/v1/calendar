@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Employee Luncheon",
+		"start": "2014-02-07 11:45:00",
+		"allDay": false
+	},
+
+	{
+		"title": "Important Meeting",
+		"start": "2014-02-10 14:30:00",
+		"allDay": false
+	},
+
+	{
+		"title": "Developer Conference",
+		"start": "2014-02-22",
+		"end": "2014-02-23",
+		"allDay": true
+	}
+]

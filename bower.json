@@ -1,0 +1,17 @@
+{
+  "name": "intranet",
+  "version": "0.0.1",
+  "devDependencies": {
+    "fuzzy-search": "*",
+    "backbone": "~1.1.2",
+    "Backbone.localStorage": "~1.1.7",
+    "backbone.unclassified": "~0.1.3",
+    "bootstrap": "~3.1.1",
+    "fullcalendar": "~1.6.4",
+    "jquery": "~2.1.0",
+    "moment": "~2.5.1",
+    "requirejs": "~2.1.11",
+    "requirejs-text": "~2.0.10",
+    "underscore": "~1.6.0"
+  }
+}

@@ -1,0 +1,20 @@
+define([
+	"backbone",
+	"models/employee"
+],
+
+function(Backbone, Employee) {
+
+	var Employees = Backbone.Collection.extend({
+		localStorage: new Backbone.LocalStorage("Employees"),
+		model: Employee,
+		comparator: function(item) {
+			return ["firstName", "lastName"].map(function(field) {
+				return item.get(field);
+			});
+		}
+	});
+
+	return Employees;
+
+});

@@ -1,0 +1,26 @@
+<h1>Fixtures</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Count</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% _.each(fixtures, function(fixture, key) { %>
+			<tr data-fixture="<%= key %>">
+				<td><%= fixture.name %></td>
+				<td width="20%"><span class="fixture-count">...</span></td>
+				<td width="1%">
+					<a class="reset-button btn btn-info">Reset</a>
+				</td>
+				<td width="10%"><span class="reset-successful hide">Done!</span></td>
+			</tr>
+		<% }) %>
+	</tbody>
+</table>
+
+<a class="reset-all-button btn btn-info">Reset All</a>

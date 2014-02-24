@@ -1,4 +1,3 @@
-backbone-sandbox
-================
+# Backbone Sandbox
 
-A sandbox for playing with backbone application architecture and development
+A sandbox for playing with backbone application architecture and development.
