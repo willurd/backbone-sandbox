@@ -1,6 +1,7 @@
 define([
 	"app",
 	"backbone",
+	"mousetrap",
 	"views/index",
 	"views/calendar",
 	"views/customers",
@@ -8,9 +9,16 @@ define([
 	"views/fixtures"
 ],
 
-function(app, Backbone,
+function(app, Backbone, Mousetrap,
 	IndexView, CalendarView, CustomersView,
 	DirectoryView, FixturesView) {
+
+	var ORDERED_ROUTES = [
+		"",
+		"calendar",
+		"directory",
+		"fixtures"
+	];
 
 	function viewChanger(view) {
 		return function() {
@@ -18,11 +26,17 @@ function(app, Backbone,
 		};
 	}
 
+	_.each(ORDERED_ROUTES, function(route, index) {
+		Mousetrap.bind("command+" + (index + 1), function() {
+			app.router.navigate(route, { trigger: true });
+		});
+	});
+
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			"": "index",
 			"calendar": "calendar",
-			"customers": "customers",
+			// "customers": "customers",
 			"directory": "directory",
 			"fixtures": "fixtures"
 		},
@@ -33,7 +47,7 @@ function(app, Backbone,
 
 		index:     viewChanger(IndexView),
 		calendar:  viewChanger(CalendarView),
-		customers: viewChanger(CustomersView),
+		// customers: viewChanger(CustomersView),
 		directory: viewChanger(DirectoryView),
 		fixtures:  viewChanger(FixturesView),
 	});

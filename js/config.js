@@ -13,6 +13,7 @@ requirejs.config({
 		"fuzzy": "/lib/fuzzy-search/fuzzy-min",
 		"jquery": "/lib/jquery/dist/jquery.min",
 		"moment": "/lib/moment/moment",
+		"mousetrap": "/lib/mousetrap/mousetrap.min",
 		"underscore": "/lib/underscore/underscore",
 		"text": "/lib/requirejs-text/text"
 	},
