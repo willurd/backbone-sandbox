@@ -2,7 +2,7 @@ define([
 	"backbone",
 	"text!/templates/directory.html",
 	"components/filter-field/view",
-	"views/employees/list"
+	"views/directory/employees"
 ],
 
 function(Backbone, directoryTemplate, FilterField, EmployeeListView) {

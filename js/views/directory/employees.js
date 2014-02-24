@@ -2,7 +2,7 @@ define([
 	"backbone",
 	"fuzzy",
 	"collections/employees",
-	"views/employees/employee",
+	"views/directory/employees/employee",
 	"text!/templates/directory/employees.html"
 ],
 
