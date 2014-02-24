@@ -12,6 +12,12 @@ function(Backbone, directoryTemplate, FilterField, EmployeeListView) {
 		className: "view-directory",
 		template: _.template(directoryTemplate),
 
+		ui: {
+			label: {
+				listCount: ".list-count-label"
+			}
+		},
+
 		outlets: {
 			filterField: {
 				view: FilterField,
@@ -22,13 +28,20 @@ function(Backbone, directoryTemplate, FilterField, EmployeeListView) {
 			},
 			employees: {
 				view: EmployeeListView,
-				selector: ".outlet-employees"
+				selector: ".outlet-employees",
+				events: {
+					"filtered": "onListFiltered"
+				}
 			}
 		},
 
 		onFilter: function(text) {
 			var employees = this.outlet("employees");
 			employees.trigger("filter", text);
+		},
+
+		onListFiltered: function(models) {
+			this.ui.label.listCount.text(models.length);
 		}
 	});
 

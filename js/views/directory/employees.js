@@ -40,6 +40,8 @@ function(Backbone, fuzzy, Employees, EmployeeView, template) {
 
 			var coll = this.collection.filter(this.matchesFilter, this);
 			_.each(coll, this.addOne, this);
+
+			this.trigger("filtered", coll);
 		},
 
 		addOne: function(model) {
