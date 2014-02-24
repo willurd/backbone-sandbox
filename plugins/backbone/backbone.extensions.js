@@ -122,12 +122,20 @@ function(_, Backbone, fp, Log) {
 
 				var SubviewClass = descriptor.view;
 				var events = descriptor.events || {};
+				var triggers = descriptor.triggers || {};
 				var el = this.$(descriptor.selector);
 				var subview = new SubviewClass({ el: el });
 
 				// Listen to events on the subview.
 				_.each(events, function(method, eventName) {
 					this.listenTo(subview, eventName, this[method]);
+				}, this);
+
+				_.each(triggers, function(eventName, translatedEventName) {
+					this.listenTo(this, eventName, function() {
+						var args = slice.call(arguments);
+						subview.trigger.apply(subview, [translatedEventName].concat(args));
+					});
 				}, this);
 
 				this.outletMap[name] = subview;

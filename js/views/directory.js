@@ -31,13 +31,15 @@ function(Backbone, directoryTemplate, FilterField, EmployeeListView) {
 				selector: ".outlet-employees",
 				events: {
 					"filtered": "onListFiltered"
+				},
+				triggers: {
+					"filter": "filter"
 				}
 			}
 		},
 
 		onFilter: function(text) {
-			var employees = this.outlet("employees");
-			employees.trigger("filter", text);
+			this.trigger("filter", text);
 		},
 
 		onListFiltered: function(models) {
