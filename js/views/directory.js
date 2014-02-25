@@ -9,6 +9,7 @@ function(Backbone, directoryTemplate, FilterField, EmployeeListView) {
 
 	var DirectoryView = Backbone.View.extend({
 		name: "DirectoryView",
+		title: "Directory",
 		className: "view-directory",
 		template: _.template(directoryTemplate),
 

@@ -49,6 +49,7 @@ function(app, _, Backbone, Log, AppRouter, appTemplate, TitlebarView) {
 
 			// Add the view to the page.
 			var view = new ViewClass(options || {});
+			app.trigger("title", view.title);
 
 			if (view.renderOnInitialize !== false) {
 				view.render();

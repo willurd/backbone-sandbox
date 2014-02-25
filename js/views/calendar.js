@@ -8,6 +8,7 @@ function(Backbone, Events, calendarTemplate) {
 
 	var CalendarView = Backbone.View.extend({
 		name: "CalendarView",
+		title: "Calendar",
 		className: "view-calendar",
 		template: _.template(calendarTemplate),
 

@@ -30,6 +30,7 @@ function($, Backbone, fp, template, NewsList, Employees, Events) {
 
 	var FixturesView = Backbone.View.extend({
 		name: "FixturesView",
+		title: "Fixtures",
 		className: "view-fixtures",
 		template: _.template(template),
 		scope: {

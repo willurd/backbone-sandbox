@@ -9,6 +9,7 @@ function(_, Backbone, indexTemplate, NewsView) {
 
 	var IndexView = Backbone.View.extend({
 		name: "IndexView",
+		title: "Home",
 		className: "view-index",
 		template: _.template(indexTemplate),
 
