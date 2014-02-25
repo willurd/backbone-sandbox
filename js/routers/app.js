@@ -6,12 +6,18 @@ define([
 	"views/calendar",
 	"views/customers",
 	"views/directory",
-	"views/fixtures"
+	"views/fixtures",
+	"views/directory/employees/employee",
+	"models/employee",
 ],
 
 function(app, Backbone, Mousetrap,
 	IndexView, CalendarView, CustomersView,
-	DirectoryView, FixturesView) {
+	DirectoryView, FixturesView,
+	EmployeeView,
+	Employee) {
+
+	var slice = Array.prototype.slice;
 
 	var ORDERED_ROUTES = [
 		"",
@@ -20,9 +26,21 @@ function(app, Backbone, Mousetrap,
 		"fixtures"
 	];
 
-	function viewChanger(view) {
+	function viewChanger(view, configFn) {
+		var args = slice.call(arguments, 1);
+
 		return function() {
-			app.trigger("view:change", view);
+			var params = slice.call(arguments);
+			var options = {
+				args: args,
+				params: params
+			};
+
+			if (configFn) {
+				options = configFn(options) || options;
+			}
+
+			app.trigger("view:change", view, options);
 		};
 	}
 
@@ -39,6 +57,7 @@ function(app, Backbone, Mousetrap,
 			"calendar": "calendar",
 			// "customers": "customers",
 			"directory": "directory",
+			"directory/employees/:id": "employee",
 			"fixtures": "fixtures"
 		},
 
@@ -51,6 +70,11 @@ function(app, Backbone, Mousetrap,
 		// customers: viewChanger(CustomersView),
 		directory: viewChanger(DirectoryView),
 		fixtures:  viewChanger(FixturesView),
+		employee:  viewChanger(EmployeeView, function(options) {
+			var model = new Employee({ id: options.params[0] });
+			model.fetch();
+			options.model = model;
+		})
 	});
 
 	return AppRouter;

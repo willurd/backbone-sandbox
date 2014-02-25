@@ -2,11 +2,11 @@ define([
 	"backbone",
 	"fuzzy",
 	"collections/employees",
-	"views/directory/employees/employee",
+	"views/directory/employees/employeeItem",
 	"text!/templates/directory/employees.html"
 ],
 
-function(Backbone, fuzzy, Employees, EmployeeView, template) {
+function(Backbone, fuzzy, Employees, EmployeeItemView, template) {
 
 	var EmployeeListView = Backbone.View.extend({
 		name: "EmployeeListView",
@@ -45,7 +45,7 @@ function(Backbone, fuzzy, Employees, EmployeeView, template) {
 		},
 
 		addOne: function(model) {
-			var view = new EmployeeView({ model: model });
+			var view = new EmployeeItemView({ model: model });
 			this.$el.append(view.render().el);
 		}
 	});

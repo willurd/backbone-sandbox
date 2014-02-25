@@ -6,7 +6,7 @@ define([
 function(Backbone, NewsItem) {
 
 	var NewsList = Backbone.Collection.extend({
-		localStorage: new Backbone.LocalStorage("NewsList"),
+		localStorage: new Backbone.LocalStorage("News"),
 		model: NewsItem
 	});
 

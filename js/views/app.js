@@ -38,7 +38,7 @@ function(app, _, Backbone, Log, AppRouter, appTemplate, TitlebarView) {
 			app.router.start();
 		},
 
-		changeView: function(ViewClass) {
+		changeView: function(ViewClass, options) {
 			if (this.currentView) {
 				this.currentView.destroy();
 				this.currentView = null;
@@ -48,7 +48,7 @@ function(app, _, Backbone, Log, AppRouter, appTemplate, TitlebarView) {
 			this.ui.views.empty();
 
 			// Add the view to the page.
-			var view = new ViewClass();
+			var view = new ViewClass(options || {});
 			this.ui.views.append(view.render().el);
 			this.currentView = view;
 		}
