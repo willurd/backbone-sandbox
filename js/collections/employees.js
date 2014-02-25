@@ -9,7 +9,7 @@ function(Backbone, Employee) {
 		localStorage: new Backbone.LocalStorage("Employees"),
 		model: Employee,
 		comparator: function(item) {
-			return _.map(["firstName", "lastName"], item.get, item);
+			return item.getFullName();
 		}
 	});
 
