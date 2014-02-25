@@ -26,8 +26,9 @@ function(app, Backbone, Mousetrap,
 		};
 	}
 
+	// Add alt+<num> keyboard shortcuts for switching views.
 	_.each(ORDERED_ROUTES, function(route, index) {
-		Mousetrap.bind("command+" + (index + 1), function() {
+		Mousetrap.bind("alt+" + (index + 1), function() {
 			app.router.navigate(route, { trigger: true });
 		});
 	});
