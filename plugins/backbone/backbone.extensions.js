@@ -3,12 +3,13 @@
  */
 define([
 	"underscore",
+	"jquery",
 	"backbone",
 	"util/fp",
 	"util/Log"
 ],
 
-function(_, Backbone, fp, Log) {
+function(_, $, Backbone, fp, Log) {
 	if (typeof Backbone === "undefined") {
 		return console.error("backbone.extensions must be included after backbone");
 	}
@@ -75,16 +76,17 @@ function(_, Backbone, fp, Log) {
 			var scope = {};
 
 			// Get the right scope.
-			if (this.scope) {
-				if (typeof this.scope === "function") {
-					scope = this.scope();
-				} else {
-					scope = this.scope;
-				}
-			} else if (this.model) {
+			if (this.model) {
 				scope = this.model.toJSON();
 			} else if (this.collection) {
 				scope = this.collection.toJSON();
+			}
+
+			// Add the scope property to the scope.
+			if (typeof this.scope === "function") {
+				scope = $.extend(scope, this.scope());
+			} else {
+				scope = $.extend(scope, this.scope);
 			}
 
 			// Render the template.
