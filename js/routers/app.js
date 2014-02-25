@@ -4,7 +4,6 @@ define([
 	"mousetrap",
 	"views/index",
 	"views/calendar",
-	"views/customers",
 	"views/directory",
 	"views/fixtures",
 	"views/directory/employees/employee",
@@ -12,7 +11,7 @@ define([
 ],
 
 function(app, Backbone, Mousetrap,
-	IndexView, CalendarView, CustomersView,
+	IndexView, CalendarView,
 	DirectoryView, FixturesView,
 	EmployeeView,
 	Employee) {
@@ -55,7 +54,6 @@ function(app, Backbone, Mousetrap,
 		routes: {
 			"": "index",
 			"calendar": "calendar",
-			// "customers": "customers",
 			"directory": "directory",
 			"directory/employees/:id": "employee",
 			"fixtures": "fixtures"
@@ -67,13 +65,10 @@ function(app, Backbone, Mousetrap,
 
 		index:     viewChanger(IndexView),
 		calendar:  viewChanger(CalendarView),
-		// customers: viewChanger(CustomersView),
 		directory: viewChanger(DirectoryView),
 		fixtures:  viewChanger(FixturesView),
 		employee:  viewChanger(EmployeeView, function(options) {
-			var model = new Employee({ id: options.params[0] });
-			model.fetch();
-			options.model = model;
+			options.model = new Employee({ id: options.params[0] });
 		})
 	});
 

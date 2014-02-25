@@ -29,11 +29,10 @@ function(app, settings, _, Backbone, titlebarTemplate) {
 		onRoute: function(route, args) {
 			this.ui.menu.items.removeClass("active");
 			this.getMenuItem(route).addClass("active");
-
 		},
 
 		getMenuItem: function(route) {
-			return this.ui.menu.items.filter("[data-route='" + route + "']");
+			return this.ui.menu.items.filter("[data-route*=' " + route + " ']");
 		}
 	});
 

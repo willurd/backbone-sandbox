@@ -49,7 +49,12 @@ function(app, _, Backbone, Log, AppRouter, appTemplate, TitlebarView) {
 
 			// Add the view to the page.
 			var view = new ViewClass(options || {});
-			this.ui.views.append(view.render().el);
+
+			if (view.renderOnInitialize !== false) {
+				view.render();
+			}
+
+			this.ui.views.append(view.el);
 			this.currentView = view;
 		}
 	});

@@ -8,9 +8,11 @@ function(Backbone, template) {
 	var EmployeeView = Backbone.View.extend({
 		name: "EmployeeView",
 		template: _.template(template),
+		renderOnInitialize: false,
 
-		initialze: function(options) {
-			this.log.debug(options);
+		postInitialize: function() {
+			this.listenTo(this.model, "sync", this.render);
+			this.model.fetch();
 		}
 	});
 

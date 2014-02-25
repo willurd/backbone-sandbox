@@ -1,0 +1,6 @@
+.employee-photo {
+	border: 1px solid #ddd;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	margin-right: 25px;
+	width: 140px;
+}
