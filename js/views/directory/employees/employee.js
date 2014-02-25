@@ -18,6 +18,11 @@ function(app, Backbone, template) {
 			this.model.fetch();
 		},
 
+		destroy: function() {
+			app.trigger("loading:stop");
+			this.super("destroy");
+		},
+
 		postRender: function() {
 			app.trigger("loading:stop");
 			app.trigger("title", this.title, this.model.getFullName());
