@@ -14,10 +14,12 @@ function(app, Backbone, template) {
 
 		postInitialize: function() {
 			this.listenTo(this.model, "sync", this.render);
+			app.trigger("loading");
 			this.model.fetch();
 		},
 
 		postRender: function() {
+			app.trigger("loading:stop");
 			app.trigger("title", this.title, this.model.getFullName());
 		}
 	});
